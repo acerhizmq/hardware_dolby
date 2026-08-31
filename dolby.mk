@@ -132,3 +132,41 @@ PRODUCT_PACKAGES += \
     libswdap \
     libswgamedap \
     libswvqe \
+
+
+# ==============================================================================
+# Dolby Vision Integration
+# Isolated display management and Codec 2.0 decoding for Dolby Vision
+# ==============================================================================
+ifeq ($(TARGET_INCLUDES_DolbyVision),true)
+
+# SEPolicy for Vision
+BOARD_VENDOR_SEPOLICY_DIRS += $(DOLBY_PATH)/sepolicy/vendor/vision
+
+# Dolby Vision Config & Init Services
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/proprietary/vendor/etc/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/dolby_vision.cfg \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.dvs-service-vision.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.dvs-service-vision.rc
+
+# Dolby Vision C2 Components and Engines
+PRODUCT_PACKAGES += \
+    c2.dolby.avc.dec \
+    c2.dolby.avc.sec.dec \
+    c2.dolby.client \
+    c2.dolby.egl \
+    c2.dolby.hevc.dec \
+    c2.dolby.hevc.enc \
+    c2.dolby.hevc.sec.dec \
+    c2.dolby.store \
+    libdolbyottcameracontrol \
+    libdolbyvision \
+    dolbycodec2 \
+    libstagefright_foundation-swiitchoff \
+    vendor.dolby.dvs@1.0 \
+    vendor.dolby.media.dvs-service.xml \
+    dvs-hal-service \
+    libcodec2_hidl_shim
+
+endif
+
