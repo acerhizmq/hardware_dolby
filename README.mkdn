@@ -52,6 +52,20 @@ At the end an example commit to properly implement it in your device tree could 
           https://github.com/Spanish-or-Vanish/android_device_xiaomi_sm8350-common/commit/6a8f6aae347f9f864f17f2dfa5d541f83ab5b170
           https://github.com/Spanish-or-Vanish/android_device_xiaomi_sm8350-common/commit/5c593cbd2c19d571b7e62ea4bd6b8c864a4e1d9e
 
+Dolby Vision Support (Optional)
+-------------------------------
+To enable isolated Dolby Vision support (on devices with a compatible display panel):
+
+1. In your device's `media_codecs.xml` (or media codecs config):
+```xml
+<Include href="media_codecs_dolby_vision.xml" />
+```
+
+2. In your device's makefile (before inheriting dolby.mk):
+```make
+TARGET_INCLUDES_DolbyVision := true
+```
+
 # Credits:
  * [**HELLBOY017**](https://github.com/HELLBOY017)
  * [**adithya2306**](https://github.com/adithya2306)
