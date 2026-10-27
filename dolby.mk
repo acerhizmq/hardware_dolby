@@ -166,6 +166,7 @@ PRODUCT_PACKAGES += \
     libstagefright_foundation-swiitchoff \
     vendor.dolby.dvs@1.0 \
     vendor.dolby.media.dvs-service.xml \
+    vendor.dolbyvision.media.c2.xml \
     dvs-hal-service \
     libcodec2_hidl_shim
 

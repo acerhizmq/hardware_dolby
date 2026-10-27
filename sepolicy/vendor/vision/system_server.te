@@ -1,2 +1,1 @@
-# Dolby Vision
-allow system_server hal_dvs_default:binder { call transfer };
+hal_client_domain(system_server, hal_dvs)
