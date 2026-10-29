@@ -116,6 +116,7 @@ PRODUCT_PACKAGES += \
     vendor.dolby.hardware.dms@2.0 \
     libdlbdsservice \
     liboem_specific \
+    libswspatializer_ext \
     vendor.dolby.hardware.dms@2.0-impl \
     vendor.dolby.hardware.dms@2.0-service \
     libcodec2_soft_ac4dec \
