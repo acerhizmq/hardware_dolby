@@ -1,0 +1,6 @@
+service vendor-dolby-media-c2-service /vendor/bin/hw/vendor.dolby.media.c2-service
+    class hal
+    user mediacodec
+    group camera mediadrm drmrpc
+    ioprio rt 4
+    task_profiles ProcessCapacityHigh

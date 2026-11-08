@@ -1,8 +1,8 @@
 <manifest version="1.0" type="device">
-    <!-- Registered by /vendor/bin/hw/dolbycodec2 (Dolby Vision decoders) -->
-    <hal format="hidl">
+    <!-- Registered by /vendor/bin/hw/vendor.dolbyvision.media.c2-service (Dolby Vision codecs) -->
+    <hal format="aidl">
         <name>android.hardware.media.c2</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IComponentStore/dolby</fqname>
+        <version>1</version>
+        <fqname>IComponentStore/default2</fqname>
     </hal>
 </manifest>

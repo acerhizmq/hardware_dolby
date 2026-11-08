@@ -110,10 +110,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
 
-# Codec2 (Dolby)
-PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc \
-
 PRODUCT_PACKAGES += \
     libdapparamstorage \
     libdlbpreg \
@@ -127,7 +123,7 @@ PRODUCT_PACKAGES += \
     libcodec2_soft_dolby \
     libcodec2_store_dolby \
     libdeccfg \
-    vendor.dolby.media.c2@1.0-service \
+    vendor.dolby.media.c2-service \
     libdlbvol \
     libswdap \
     libswgamedap \
@@ -147,7 +143,6 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DOLBY_PATH)/sepolicy/vendor/vision
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/configs/media_codecs_dolby_vision.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_vision.xml \
     $(DOLBY_PATH)/proprietary/vendor/etc/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/dolby_vision.cfg \
-    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc \
     $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.dvs-service-vision.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.dvs-service-vision.rc
 
 # Dolby Vision C2 Components and Engines
@@ -162,7 +157,7 @@ PRODUCT_PACKAGES += \
     c2.dolby.store \
     libdolbyottcameracontrol \
     libdolbyvision \
-    dolbycodec2 \
+    vendor.dolbyvision.media.c2-service \
     libstagefright_foundation-swiitchoff \
     vendor.dolby.dvs@1.0 \
     vendor.dolby.media.dvs-service.xml \
