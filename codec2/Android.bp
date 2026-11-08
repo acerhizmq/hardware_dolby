@@ -36,3 +36,19 @@ cc_binary {
     shared_libs: ["c2.dolby.store"],
     init_rc: ["vendor.dolbyvision.media.c2-service.rc"],
 }
+
+// HIDL view of the QTI store for c2.dolby.client.so.
+cc_binary {
+    name: "vendor.dolbyvision.media.c2-qti-hidl-service",
+    vendor: true,
+    relative_install_path: "hw",
+    compile_multilib: "64",
+    defaults: ["libcodec2-hidl-defaults"],
+    srcs: ["QtiC2HidlStore.cpp"],
+    shared_libs: [
+        "libavservices_minijail",
+        "libbinder",
+        "libhidlbase",
+    ],
+    init_rc: ["vendor.dolbyvision.media.c2-qti-hidl-service.rc"],
+}

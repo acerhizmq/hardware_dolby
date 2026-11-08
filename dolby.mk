@@ -158,6 +158,7 @@ PRODUCT_PACKAGES += \
     libdolbyottcameracontrol \
     libdolbyvision \
     vendor.dolbyvision.media.c2-service \
+    vendor.dolbyvision.media.c2-qti-hidl-service \
     libstagefright_foundation-swiitchoff \
     vendor.dolby.dvs@1.0 \
     vendor.dolby.media.dvs-service.xml \
