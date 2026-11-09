@@ -1,2 +1,0 @@
-# The Dolby Vision codecs talk to DVS
-hal_client_domain(mediacodec, hal_dvs)

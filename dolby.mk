@@ -139,11 +139,10 @@ ifeq ($(TARGET_INCLUDES_DolbyVision),true)
 # SEPolicy for Vision
 BOARD_VENDOR_SEPOLICY_DIRS += $(DOLBY_PATH)/sepolicy/vendor/vision
 
-# Dolby Vision Config & Init Services
+# Dolby Vision Config
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/configs/media_codecs_dolby_vision.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_vision.xml \
-    $(DOLBY_PATH)/proprietary/vendor/etc/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/dolby_vision.cfg \
-    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.dvs-service-vision.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.dvs-service-vision.rc
+    $(DOLBY_PATH)/proprietary/vendor/etc/dolby_vision.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/dolby_vision.cfg
 
 # Dolby Vision C2 Components and Engines
 PRODUCT_PACKAGES += \
@@ -160,10 +159,7 @@ PRODUCT_PACKAGES += \
     vendor.dolbyvision.media.c2-service \
     vendor.dolbyvision.media.c2-qti-hidl-service \
     libstagefright_foundation-swiitchoff \
-    vendor.dolby.dvs@1.0 \
-    vendor.dolby.media.dvs-service.xml \
     vendor.dolbyvision.media.c2.xml \
-    dvs-hal-service \
     libcodec2_hidl_shim
 
 endif
