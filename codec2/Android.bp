@@ -32,7 +32,7 @@ cc_binary {
 cc_binary {
     name: "vendor.dolbyvision.media.c2-service",
     defaults: ["dolby_c2_aidl_service_defaults"],
-    cflags: ["-DDOLBY_C2_INSTANCE=\"default2\""],
+    cflags: ["-DDOLBY_C2_INSTANCE=\"default3\""],
     shared_libs: ["c2.dolby.store"],
     init_rc: ["vendor.dolbyvision.media.c2-service.rc"],
 }

@@ -1,0 +1,2 @@
+# Dolby Vision Codec2 store; default2 is the QTI audio store
+android.hardware.media.c2.IComponentStore/default3                   u:object_r:hal_codec2_service:s0

@@ -3,7 +3,7 @@
     <hal format="aidl">
         <name>android.hardware.media.c2</name>
         <version>1</version>
-        <fqname>IComponentStore/default2</fqname>
+        <fqname>IComponentStore/default3</fqname>
     </hal>
     <!-- Registered by /vendor/bin/hw/vendor.dolbyvision.media.c2-qti-hidl-service: the QTI
          store over HIDL, which c2.dolby.client.so connects to -->
