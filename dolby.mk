@@ -125,9 +125,16 @@ PRODUCT_PACKAGES += \
     libdeccfg \
     vendor.dolby.media.c2-service \
     libdlbvol \
-    libswdap \
     libswgamedap \
     libswvqe \
+
+ifeq ($(USE_HWDAP),true)
+PRODUCT_PACKAGES += \
+    libhwdap
+else
+PRODUCT_PACKAGES += \
+    libswdap
+endif
 
 
 # ==============================================================================
