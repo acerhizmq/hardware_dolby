@@ -10,6 +10,7 @@ import android.content.SharedPreferences
 import android.media.AudioAttributes
 import android.media.AudioDeviceInfo
 import android.media.AudioManager
+import android.util.Log
 import org.lunaris.dolby.DolbyConstants
 import org.lunaris.dolby.DolbyConstants.DsParam
 import org.lunaris.dolby.R
@@ -121,9 +122,23 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
     }
 
     fun applySavedState() {
-    checkEffect()
+        checkEffect()
         val enabled = defaultPrefs.getBoolean(DolbyConstants.PREF_ENABLE, false)
-        dolbyEffect.dsOn = enabled
+        try {
+            dolbyEffect.dsOn = enabled
+        } catch (e: Exception) {
+            // After an audioserver restart the old effect can still report control while every
+            // call fails; recreate it once instead of crashing the sticky service.
+            DolbyConstants.dlog(TAG, "Effect unusable (${e.message}), recreating")
+            try {
+                dolbyEffect.release()
+                dolbyEffect = createDolbyEffect()
+                dolbyEffect.dsOn = enabled
+            } catch (e2: Exception) {
+                Log.e(TAG, "Dolby effect not available: ${e2.message}")
+                return
+            }
+        }
         if (enabled) {
             restoreSavedProfileIfNeeded()
         }
