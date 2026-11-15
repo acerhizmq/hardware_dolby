@@ -44,10 +44,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_dolby
 
-# Init
-PRODUCT_PACKAGES += \
-    init.dolby.rc
-
 # Overlays    
 PRODUCT_PACKAGES += \
     DolbyFrameworksResCommon

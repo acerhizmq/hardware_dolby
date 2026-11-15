@@ -1,2 +1,0 @@
-on early-boot
-    mkdir /data/vendor/multimedia 0775 system system
