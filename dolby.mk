@@ -37,10 +37,6 @@ PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/configs/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
     $(DOLBY_PATH)/configs/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml
 
-# Dolby VNDK libs
-PRODUCT_PACKAGES += \
-    libstagefright_foundation-v33
-
 PRODUCT_PACKAGES += \
     libshim_dolby
 
@@ -67,15 +63,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Spatial Audio Proprietary blobs
 PRODUCT_PACKAGES += \
     libspatialaudio
-
-# Media (C2)
-PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.0.vendor \
-    android.hardware.media.c2@1.1.vendor \
-    android.hardware.media.c2@1.2.vendor \
-    libcodec2_hidl@1.2.vendor \
-    libsfplugin_ccodec_utils.vendor \
-    libcodec2_soft_common.vendor
 
 # Codec2 Props
 PRODUCT_VENDOR_PROPERTIES += \
