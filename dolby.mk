@@ -121,7 +121,6 @@ PRODUCT_PACKAGES += \
     vendor.dolby.hardware.dms@2.0-service \
     libcodec2_soft_ac4dec \
     libcodec2_soft_ddpdec \
-    libcodec2_soft_dolby \
     libcodec2_store_dolby \
     libdeccfg \
     vendor.dolby.media.c2-service \
@@ -129,11 +128,15 @@ PRODUCT_PACKAGES += \
     libswgamedap \
     libswvqe \
 
+# USE_HWDAP must be defined before inheriting this product file.
+$(call soong_config_set_bool,dolby_codec2,use_hwdap,$(USE_HWDAP))
+
 ifeq ($(USE_HWDAP),true)
 PRODUCT_PACKAGES += \
     libhwdap
 else
 PRODUCT_PACKAGES += \
+    libcodec2_soft_dolby \
     libswdap
 endif
 

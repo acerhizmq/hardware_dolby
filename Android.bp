@@ -15,6 +15,15 @@
 soong_namespace {
 }
 
+soong_config_module_type {
+	name: "dolby_codec2_prebuilt",
+	module_type: "cc_prebuilt_library_shared",
+	config_namespace: "dolby_codec2",
+	bool_variables: ["use_hwdap"],
+	properties: ["srcs", "shared_libs"],
+}
+
+
 cc_prebuilt_library_shared {
 	name: "libdapparamstorage",
 	owner: "xiaomi",
@@ -147,38 +156,48 @@ cc_prebuilt_binary {
 	soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
+dolby_codec2_prebuilt {
 	name: "libcodec2_soft_ac4dec",
 	owner: "xiaomi",
 	strip: {
 		none: true,
 	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libcodec2_soft_ac4dec.so"],
-			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libcutils", "libbase", "liblog", "libcodec2", "libcodec2_vndk", "libutils", "libcodec2_soft_dolby", "libcodec2_store_dolby", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
 	compile_multilib: "64",
 	prefer: true,
 	soc_specific: true,
+	soong_config_variables: {
+		use_hwdap: {
+			srcs: ["proprietary/vendor/lib64/libcodec2_soft_ac4dec_hw.so"],
+			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libcodec2_soft_common", "libsfplugin_ccodec_utils", "libcutils", "libbase", "liblog", "libcodec2", "libcodec2_vndk", "libutils", "libcodec2_store_dolby", "libc++", "libc", "libm", "libdl", ],
+			conditions_default: {
+				// Bizim (Sony pdx234) decoder'imiz SW yolu olarak korunuyor.
+				srcs: ["proprietary/vendor/lib64/libcodec2_soft_ac4dec.so"],
+				shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libcutils", "libbase", "liblog", "libcodec2", "libcodec2_vndk", "libutils", "libcodec2_soft_dolby", "libcodec2_store_dolby", "libc++", "libc", "libm", "libdl", ],
+			},
+		},
+	},
 }
 
-cc_prebuilt_library_shared {
+dolby_codec2_prebuilt {
 	name: "libcodec2_soft_ddpdec",
 	owner: "xiaomi",
 	strip: {
 		none: true,
 	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libcodec2_soft_ddpdec.so"],
-			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libcutils", "libbase", "liblog", "libcodec2", "libcodec2_vndk", "libutils", "libcodec2_soft_dolby", "libcodec2_store_dolby", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
 	compile_multilib: "64",
 	prefer: true,
 	soc_specific: true,
+	soong_config_variables: {
+		use_hwdap: {
+			srcs: ["proprietary/vendor/lib64/libcodec2_soft_ddpdec_hw.so"],
+			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libcodec2_soft_common", "libsfplugin_ccodec_utils", "libcutils", "libbase", "liblog", "libcodec2", "libcodec2_vndk", "libutils", "libcodec2_store_dolby", "libc++", "libc", "libm", "libdl", ],
+			conditions_default: {
+				// Bizim (Sony pdx234) decoder'imiz SW yolu olarak korunuyor.
+				srcs: ["proprietary/vendor/lib64/libcodec2_soft_ddpdec.so"],
+				shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libcutils", "libbase", "liblog", "libcodec2", "libcodec2_vndk", "libutils", "libcodec2_soft_dolby", "libcodec2_store_dolby", "libc++", "libc", "libm", "libdl", ],
+			},
+		},
+	},
 }
 
 cc_prebuilt_library_shared {
